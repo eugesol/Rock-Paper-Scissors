@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <script type="text/javascript">
+    
+        //win/loss/tie global vars
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+        //computer choice array
+        var choices = ["r", "p", "s"];
+
+        //game start message
+        alert("Rock, Paper, Scissors....GO!");
+
+        //loop 10 times for 10 rounds
+        for (var i = 0; i < 10; i++ ) {
+
+           
+            //get a random number between 0 and 2, then use it to index into our computer choice array
+            //store that random computer choice in a variable called "computerChoice"
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            //prompt the user for a letter ('r', 'p', 's')
+            var userChoice = prompt("What do you choose (type 'r', 'p', or 's')").toLowerCase().trim();
+
+            if(userChoice==="r" || userChoice==="p" || userChoice==="s"){
+                          
+                //display the two choices back to the user
+                alert("you chose: " + userChoice + "\ncomputer chose: " + computerChoice);
+                
+                if( userChoice === computerChoice ){
+                    alert(" It's a tie!");
+                    ties++;
+
+                } else if( userChoice === "r" && computerChoice === "s" || userChoice === "p" && computerChoice === "r" || userChoice === "s" && computerChoice === "p"){
+                    alert("You Win!!");
+                    wins++;
+
+                } else {
+                    alert ("Loser Alert!!");
+                    losses++;
+
+                }
+
+            } else {
+                alert("That's not an option, Please choose R, S, or P");
+                i--;
+
+            }
+        }
+            //compare the two and determine who won
+        
+        alert ("Wins : " + wins + "\nLosses : " + losses + "\nTies : " + ties);
+
+        if(wins>losses){
+            alert("WHAT A CHAMP!");
+        } else if(losses>wins){
+            alert("LOOOOSER");
+        } else{
+            alert("TIE!")
+        }
+
+
+    </script>
+</body>
+</html>
+
